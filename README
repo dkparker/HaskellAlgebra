@@ -1,3 +1,9 @@
 This is my file for working on my haskell algebra project.
 
-Symmetric.hs must be run with the flag -XFlexibleInstances
+Algebra.hs: A module defining typeclasses for Groups, Rings, and Fields
+
+Int_and_RatNum.hs: A module defining (Z,+,*) as a Ring, defining a RatNum type for rational numbers, and making (Q,+,*) an instance of Field
+
+xor.hs: A module defining integers with the operation xor how the bitwise xor
+
+Symmetric.hs: A module defining the symmetric group of the set {1,2,3,4,5,6}, where each bijection is an array, as an instance of group. Symmetric.hs must be run with the flag -XFlexibleInstances
