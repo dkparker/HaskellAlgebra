@@ -1,25 +1,20 @@
 module Symmetric where
 
 import Algebra
+import Data.Array
+import Data.Tuple
 import Data.List
 
-data Perm = Perm [Int]
-    deriving(Show, Eq)
-
-apply :: Perm -> Perm -> Perm
-apply (Perm as) (Perm bs) 
-    |length as == length bs && length as == 6 && sort as == sort bs = Perm $ map fst $ reverse $ sortBy (\y -> \x -> compare (snd x) (snd y)) $ zipWith (,) as bs
-    |otherwise = Perm []
-
-compose :: Perm -> Perm -> Perm
-compose (Perm as) (Perm bs) = apply (apply (Perm [1,2,3,4,5,6]) (Perm bs)) (Perm as)
-
-instance Group Perm where
-    gbinop = compose
-    gid = Perm [1,2,3,4,5,6]
-    ginv pas = pas
-
-
+type Mapping = Array Integer Integer
     
+compose :: Mapping -> Mapping -> Mapping
+compose a b = array (1,6) mlist where
+    mlist = combine (sortBy (\x -> \y -> compare (snd x) (snd y)) (assocs a)) (assocs b)
+    combine = zipWith (\x -> \y -> (fst x, snd y)) 
+
+instance Group Mapping where
+    gbinop = compose
+    gid = listArray (1,6) [1..6]
+    ginv a = array (1,6) $ map swap $ assocs a
     
 

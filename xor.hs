@@ -1,4 +1,4 @@
-module XOR where
+module XOR where --simple group
 
 import Algebra
 import Data.Bits
