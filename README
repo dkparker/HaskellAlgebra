@@ -8,4 +8,6 @@ xor.hs: A module defining integers with the bitwise operation xor as an instance
 
 Symmetric.hs: A module defining the symmetric group of the set {1,2,3,4,5,6}, where each bijection is an array, as an instance of group. Symmetric.hs must be run with the flag -XFlexibleInstances
 
-PolyRing.hs: An instance of ring for polynomials.
+PolyRing.hs: An instance of ring for polynomials
+
+Elliptic.hs: An instance of group for the points of the elliptic curve y^2 = x^3 - x + 1

@@ -28,11 +28,11 @@ multPoly (Poly a) (Poly b) = (Poly $ trunc (fmap (*(last a)) (take (length a - 1
 
 instance Ring Poly where
     rplus = addPoly
-    rplusid = Poly []
+    rplusid = Poly [] --addPoly adds the necessary amount of zeroes
     rplusinv (Poly a)= Poly $ map (*(-1)) a
     rtimes = multPoly
     rtimesid = Poly [1]
 
 eucFunc :: Poly -> Int
-eucFunc (Poly a) = length a --must not have extraneous zeros, usually the case.
+eucFunc (Poly a) = length a --must not have extraneous zeros, usually the case. I trim extra ones from multiplied polynomials and any addition shouldn't have any if the two added polynomials don't have any.
     
