@@ -11,3 +11,5 @@ Symmetric.hs: A module defining the symmetric group of the set {1,2,3,4,5,6}, wh
 PolyRing.hs: An instance of ring for polynomials
 
 Elliptic.hs: An instance of group for the points of the elliptic curve y^2 = x^3 - x + 1
+
+ThreeNum.hs: An instance of field for the finite field Z / Z[3]

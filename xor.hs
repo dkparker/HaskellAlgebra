@@ -1,7 +1,7 @@
 module XOR where --simple group
 
-import Algebra
-import Data.Bits
+import Algebra 
+import Data.Bits 
 
 instance Group Integer where
     gbinop = xor
